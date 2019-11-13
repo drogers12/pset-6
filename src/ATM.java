@@ -44,6 +44,9 @@ public class ATM {
                     }
                 }
             } else {
+            	if (accountNo == "+") {
+            		//EDIT THIS LATER TO ADD AN ACCOUNT
+            	}
                 if (accountNo == -1 && pin == -1) {
                     shutdown();
                 } else {
