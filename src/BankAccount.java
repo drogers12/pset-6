@@ -56,6 +56,10 @@ public class BankAccount {
         return ATM.SUCCESS;
     }
     
+//    public int transfer(long accountNo, double amount) {
+//    	if (accountNo != )
+//    }
+    
     ////////////////////////////////////////////////////////////////////////////
     //                                                                        //
     // Refer to the Simple ATM tutorial to fill in the details of this class. //
