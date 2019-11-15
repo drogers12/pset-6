@@ -25,11 +25,11 @@ public class ATM {
         
         while (true) {
             System.out.print("Account No.: ");
-            long accountNo = in.nextLong();
+            Long accountNo = in.nextLong();
             
             System.out.print("PIN        : ");
             int pin = in.nextInt();
-            
+          
             if (isValidLogin(accountNo, pin)) {
                 System.out.println("\nHello, again, " + activeAccount.getAccountHolder().getFirstName() + "!\n");
                 
@@ -39,14 +39,16 @@ public class ATM {
                         case VIEW: showBalance(); break;
                         case DEPOSIT: deposit(); break;
                         case WITHDRAW: withdraw(); break;
+                        //case TRANSFER: transfer(); break;
                         case LOGOUT: validLogin = false; break;
+                        
                         default: System.out.println("\nInvalid selection.\n"); break;
                     }
                 }
             } else {
-            	if (accountNo == "+") {
-            		//EDIT THIS LATER TO ADD AN ACCOUNT
-            	}
+    //        	if (accountNo == "+") {
+    //        		//EDIT THIS LATER TO ADD AN ACCOUNT
+    //        	}
                 if (accountNo == -1 && pin == -1) {
                     shutdown();
                 } else {
@@ -64,7 +66,8 @@ public class ATM {
         System.out.println("[1] View balance");
         System.out.println("[2] Deposit money");
         System.out.println("[3] Withdraw money");
-        System.out.println("[4] Logout");
+        System.out.println("[4] Transfer money");  	//EDITED SWAP BACK TO FIX
+        System.out.println("[5] Logout");			//EDITED
         
         return in.nextInt();
     }
@@ -98,6 +101,19 @@ public class ATM {
             System.out.println("\nWithdrawal accepted.\n");
         }
     }
+    
+//    public void transfer() {
+//    	System.out.println("\nEnter account: ");
+//    	double accountNo = in.nextLong();
+//    	System.out.print("\nEnter amount: ");
+//    	double amount = in.nextDouble();
+//    	
+//    	
+//    	int status = activeAccount.transfer(accountNo, amount);
+//    	if (status == ATM.INVALID) {
+//    		System.out.println("")
+//    	}
+//    }
     
     public void shutdown() {
         if (in != null) {
