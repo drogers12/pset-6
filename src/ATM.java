@@ -18,7 +18,7 @@ public class ATM {
         in = new Scanner(System.in);
         
         activeAccount = new BankAccount(1234, 123456789, new User("Ryan", "Wilson"));
-    }
+    } //use this to make new acc
     
     public void startup() {
         System.out.println("Welcome to the AIT ATM!\n");
