@@ -25,12 +25,15 @@ public class ATM {
         
         while (true) {
             System.out.print("Account No.: ");
-            Long accountNo = in.nextLong();
-            
+            String accountNo = in.nextLine();					//experimental
+            boolean numeric = isNumeric (accountNo);
+            if (numeric == true) {
+            	Long.parseLong(accountNo);
+            }
             System.out.print("PIN        : ");
             int pin = in.nextInt();
           
-            if (isValidLogin(accountNo, pin)) {
+            if (isValidLogin(accountNo, pin) && numeric == true) {
                 System.out.println("\nHello, again, " + activeAccount.getAccountHolder().getFirstName() + "!\n");
                 
                 boolean validLogin = true;
@@ -57,6 +60,15 @@ public class ATM {
             }
         }
     }
+    
+    public static boolean isNumeric(String str) { 
+	  	 try {  
+	  	   Double.parseDouble(str);  
+	  	   return true;
+	  	 } catch(NumberFormatException e){  
+	  	   return false;  
+	  	 }  
+	 }
     
     public boolean isValidLogin(long accountNo, int pin) {
         return accountNo == activeAccount.getAccountNo() && pin == activeAccount.getPin();
