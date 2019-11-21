@@ -24,15 +24,25 @@ public class ATM {
         System.out.println("Welcome to the AIT ATM!\n");
         
         while (true) {
+        	in.nextLine();
             System.out.print("Account No.: ");
             String accountNo = in.nextLine();					//experimental
+            
             if (accountNo.equals("+")) {
-            	System.out.println("ugly");
-            } else {
-	            boolean numeric = isNumeric (accountNo);
-	            System.out.print("PIN        : ");
-	            int pin = in.nextInt();
-	          
+            	System.out.println("xd");
+            	String firstName = in.nextLine();
+            	String lastName = in.nextLine();
+            	int pin = in.nextInt();
+            	System.out.println(pin);
+            	String user = firstName + " " + lastName;
+            	System.out.printf(user);
+            	
+            	//accountNo = Bank.createAccount(user , pin);
+            	
+            }
+            
+	        System.out.print("PIN        : ");
+	        int pin = in.nextInt();          
    
 	            if (isValidLogin(Long.parseLong(accountNo), pin)) {
 	                System.out.println("\nHello, again, " + activeAccount.getAccountHolder().getFirstName() + "!\n");
@@ -55,19 +65,10 @@ public class ATM {
 	                } else {
 	                    System.out.println("\nInvalid account number and/or PIN.\n");
 	                }
-	            }
+	            
         	}
         }
     }
-    
-    public static boolean isNumeric(String str) { 
-	  	 try {  
-	  	   Double.parseDouble(str);  
-	  	   return true;
-	  	 } catch(NumberFormatException e){  
-	  	   return false;  
-	  	 }  
-	 }
     
     public boolean isValidLogin(long accountNo, int pin) {
         return accountNo == activeAccount.getAccountNo() && pin == activeAccount.getPin();
